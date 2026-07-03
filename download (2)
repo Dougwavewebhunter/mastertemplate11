@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
-import { Phone, Mail, MapPin, MessageCircle, Send, CheckCircle2, Loader2 } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, Send, CircleCheck as CheckCircle2, Loader as Loader2 } from "lucide-react";
 import { SITE, telLink, mailLink, waLink } from "@/lib/site";
 import { SERVICES } from "@/lib/services-data";
 import { PageHero } from "./about";
@@ -114,6 +114,8 @@ function ContactPage() {
                       className="w-full px-4 py-3 rounded-xl bg-[color:var(--secondary)] border border-transparent focus:border-[color:var(--brand)] focus:bg-white focus:outline-none transition">
                       <option value="">Select a service...</option>
                       {SERVICES.map((s) => <option key={s.slug} value={s.title}>{s.title}</option>)}
+                      )
+                      }
                     </select>
                   </div>
                   <div>
@@ -123,6 +125,7 @@ function ContactPage() {
                   </div>
                   <button type="submit" disabled={loading} className="btn-brand w-full py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 disabled:opacity-70">
                     {loading ? <><Loader2 className="w-4 h-4 animate-spin" /> Sending...</> : <><Send className="w-4 h-4" /> Send Message</>}
+                    }
                   </button>
                 </form>
               )}

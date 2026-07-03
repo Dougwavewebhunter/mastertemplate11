@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { MessageCircle, FileText, ArrowRight, CheckCircle2, Star, Zap, ShieldCheck, Users, Award, Phone } from "lucide-react";
+import { MessageCircle, FileText, ArrowRight, CircleCheck as CheckCircle2, Star, Zap, ShieldCheck, Users, Award, Phone } from "lucide-react";
 import { SERVICES } from "@/lib/services-data";
 import { SITE, telLink, waLink } from "@/lib/site";
 

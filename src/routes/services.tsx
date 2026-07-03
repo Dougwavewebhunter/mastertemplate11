@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CheckCircle2, ShieldCheck } from "lucide-react";
+import { CircleCheck as CheckCircle2, ShieldCheck } from "lucide-react";
 import { SERVICES } from "@/lib/services-data";
 import { PageHero, CTASection } from "./about";
 

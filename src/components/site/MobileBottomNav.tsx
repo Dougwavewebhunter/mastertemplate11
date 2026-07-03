@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Home, Wrench, Image as ImageIcon, Download, Smartphone } from "lucide-react";
+import { Chrome as Home, Wrench, Image as ImageIcon, Download, Smartphone } from "lucide-react";
 import { useInstallEvent, triggerInstall } from "@/lib/pwa-install";
 
 const NAV_ITEMS = [

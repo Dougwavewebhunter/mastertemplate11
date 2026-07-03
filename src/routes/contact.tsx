@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
-import { Phone, Mail, MapPin, MessageCircle, Send, CheckCircle2, Loader2 } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, Send, CircleCheck as CheckCircle2, Loader as Loader2 } from "lucide-react";
 import { SITE, telLink, mailLink, waLink } from "@/lib/site";
 import { SERVICES } from "@/lib/services-data";
 import { PageHero } from "./about";

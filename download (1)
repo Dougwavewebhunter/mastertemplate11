@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CheckCircle2, Target, Heart, Award, MapPin, ArrowRight } from "lucide-react";
+import { CircleCheck as CheckCircle2, Target, Heart, Award, MapPin, ArrowRight } from "lucide-react";
 import heroVan from "@/assets/hero-van.jpg.asset.json";
 import { SITE, waLink } from "@/lib/site";
 
