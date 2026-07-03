@@ -1,7 +1,7 @@
 {
-  "name": "Tshepo DStv and Electronic Solutions",
-  "short_name": "Tshepo DStv",
-  "description": "Premium DStv installation, WiFi setup, phone unlocking and appliance repairs across Gauteng.",
+  "name": "Granite Installations (Pty) Ltd",
+  "short_name": "Granite Install",
+  "description": "Premium granite, marble, quartz and porcelain installations. Built for Elegance. Made to Last.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
