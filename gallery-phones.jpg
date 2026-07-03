@@ -1,0 +1,15 @@
+{
+  "name": "Tshepo DStv and Electronic Solutions",
+  "short_name": "Tshepo DStv",
+  "description": "Premium DStv installation, WiFi setup, phone unlocking and appliance repairs across Gauteng.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a1330",
+  "theme_color": "#1e40af",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

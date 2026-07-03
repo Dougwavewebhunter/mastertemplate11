@@ -1,0 +1,71 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { X } from "lucide-react";
+import heroVan from "@/assets/hero-van.jpg.asset.json";
+import gTools from "@/assets/gallery-tools.jpg";
+import gTv from "@/assets/gallery-tv.jpg";
+import gApp from "@/assets/gallery-appliances.jpg";
+import gPhones from "@/assets/gallery-phones.jpg";
+import sDish from "@/assets/slide-dish.jpg";
+import sDec from "@/assets/slide-decoder.jpg";
+import sWifi from "@/assets/slide-wifi.jpg";
+import { PageHero, CTASection } from "./about";
+
+export const Route = createFileRoute("/gallery")({
+  head: () => ({
+    meta: [
+      { title: "Gallery | Tshepo DStv — Our Work in Pictures" },
+      { name: "description", content: "Browse our installation and repair work — DStv, WiFi, appliances, phones and more." },
+      { property: "og:title", content: "Gallery | Tshepo DStv" },
+      { property: "og:description", content: "Premium installations, real results." },
+    ],
+  }),
+  component: GalleryPage,
+});
+
+const IMAGES = [
+  { src: heroVan.url, c: "Branded Service Vehicle" },
+  { src: sDish, c: "Satellite Dish Installation" },
+  { src: sDec, c: "DStv Decoder Setup" },
+  { src: sWifi, c: "WiFi Router Installation" },
+  { src: gTv, c: "Smart TV Setup" },
+  { src: gApp, c: "Appliance Repairs" },
+  { src: gPhones, c: "Phone Unlocking" },
+  { src: gTools, c: "Tools of the Trade" },
+];
+
+function GalleryPage() {
+  const [zoom, setZoom] = useState<number | null>(null);
+  return (
+    <>
+      <PageHero title="Gallery" subtitle="A glimpse of the equipment, tools and quality service we bring to your door." />
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+          {IMAGES.map((im, i) => (
+            <button key={i} onClick={() => setZoom(i)}
+              className={`group relative rounded-2xl overflow-hidden aspect-square shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-glow)] transition-all reveal-up ${i % 5 === 0 ? "md:row-span-2 md:aspect-auto" : ""}`}
+              style={{ animationDelay: `${i * 60}ms` }}
+            >
+              <img src={im.src} alt={im.c} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition" />
+              <div className="absolute bottom-3 left-3 right-3 text-left text-white text-sm font-semibold translate-y-3 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition">
+                {im.c}
+              </div>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {zoom !== null && (
+        <div className="fixed inset-0 z-[80] bg-black/90 backdrop-blur grid place-items-center p-4 reveal-up" onClick={() => setZoom(null)}>
+          <button onClick={() => setZoom(null)} className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/15 grid place-items-center text-white" aria-label="Close">
+            <X className="w-5 h-5" />
+          </button>
+          <img src={IMAGES[zoom].src} alt={IMAGES[zoom].c} className="max-h-[85vh] max-w-full rounded-2xl shadow-2xl" />
+        </div>
+      )}
+
+      <CTASection />
+    </>
+  );
+}

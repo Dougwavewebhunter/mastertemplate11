@@ -1,0 +1,122 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { CheckCircle2, Target, Heart, Award, Users, MapPin, ArrowRight } from "lucide-react";
+import heroVan from "@/assets/hero-van.jpg.asset.json";
+import { SITE, waLink } from "@/lib/site";
+
+export const Route = createFileRoute("/about")({
+  head: () => ({
+    meta: [
+      { title: "About Us | Tshepo DStv & Electronic Solutions" },
+      { name: "description", content: "Meet Tshepo DStv — Gauteng's trusted DStv, WiFi and electronic installation specialists. Professional, affordable, guaranteed." },
+      { property: "og:title", content: "About Tshepo DStv" },
+      { property: "og:description", content: "Our story, our promise, our service to Gauteng." },
+      { property: "og:image", content: heroVan.url },
+    ],
+  }),
+  component: AboutPage,
+});
+
+function AboutPage() {
+  return (
+    <>
+      <PageHero title="About Us" subtitle="Built on trust. Driven by excellence." />
+
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-center">
+          <div className="reveal-up">
+            <p className="text-xs font-bold tracking-[0.25em] text-[color:var(--brand)] mb-3">OUR STORY</p>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-5">Local experts. <span className="gradient-text">Premium service.</span></h2>
+            <p className="text-[color:var(--muted-foreground)] mb-4">
+              Tshepo DStv & Electronic Solutions was built to deliver one thing: installations and repairs that actually work — the first time. From DStv decoders to WiFi networks, from phone unlocks to appliance fixes, we bring premium service straight to your door across Gauteng.
+            </p>
+            <p className="text-[color:var(--muted-foreground)] mb-6">
+              Our promise is simple. Fast response. Honest pricing. Quality guaranteed. Whether it's a single dish setup or a full home rollout, you get the same professional standard every time.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {["Fast Response Times", "Professional Technicians", "100% Satisfaction Promise", "Affordable Pricing"].map((p) => (
+                <div key={p} className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-5 h-5 text-[color:var(--brand)] flex-shrink-0" />
+                  <span className="text-sm font-medium">{p}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="reveal-up">
+            <div className="relative rounded-3xl overflow-hidden shadow-[var(--shadow-card)]">
+              <img src={heroVan.url} alt="Tshepo DStv branded service vehicle" className="w-full h-auto" loading="lazy" />
+              <div className="absolute bottom-4 left-4 right-4 glass-dark rounded-2xl p-4 text-white">
+                <p className="text-xs font-bold tracking-widest text-[color:var(--brand-glow)] mb-1">SERVICE AREA</p>
+                <p className="font-semibold flex items-center gap-2"><MapPin className="w-4 h-4" /> We Come To You Anywhere in Gauteng</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-[color:var(--secondary)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <h2 className="text-3xl sm:text-4xl font-bold">Our Values</h2>
+            <p className="text-[color:var(--muted-foreground)] mt-3">What guides every job we take on.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              { i: Target, t: "Mission", d: "To deliver reliable, premium installations and repairs that customers can trust — every visit, every time." },
+              { i: Heart, t: "Promise", d: "We connect. We install. We care. Service done with respect and integrity." },
+              { i: Award, t: "Standard", d: "Quality you can see, signal you can trust, work backed by our 100% satisfaction guarantee." },
+            ].map(({ i: I, t, d }, i) => (
+              <div key={t} className="bg-white rounded-3xl p-7 shadow-[var(--shadow-soft)] reveal-up" style={{ animationDelay: `${i * 100}ms` }}>
+                <div className="w-12 h-12 rounded-2xl btn-brand grid place-items-center mb-4"><I className="w-5 h-5 text-white" /></div>
+                <h3 className="text-xl font-bold mb-2">{t}</h3>
+                <p className="text-sm text-[color:var(--muted-foreground)]">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-5 text-center">
+          {[{ v: "500+", l: "Installations" }, { v: "10+", l: "Service Types" }, { v: "100%", l: "Guarantee" }, { v: "5★", l: "Rated" }].map((s) => (
+            <div key={s.l} className="bg-white rounded-3xl p-6 border border-[color:var(--border)] shadow-[var(--shadow-soft)]">
+              <div className="text-3xl sm:text-4xl font-bold gradient-text mb-1">{s.v}</div>
+              <div className="text-xs sm:text-sm text-[color:var(--muted-foreground)] font-medium">{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <CTASection />
+    </>
+  );
+}
+
+export function PageHero({ title, subtitle }: { title: string; subtitle: string }) {
+  return (
+    <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 hero-gradient overflow-hidden text-white">
+      <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[color:var(--brand-glow)]/25 blur-3xl floaty" />
+      <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-[color:var(--brand)]/25 blur-3xl floaty" style={{ animationDelay: "2s" }} />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 text-center">
+        <h1 className="text-4xl sm:text-6xl font-bold mb-4 reveal-up">{title}</h1>
+        <p className="text-white/80 text-lg max-w-2xl mx-auto reveal-up">{subtitle}</p>
+      </div>
+    </section>
+  );
+}
+
+export function CTASection() {
+  return (
+    <section className="py-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="rounded-3xl hero-gradient p-10 text-center text-white">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3">Ready to get started?</h2>
+          <p className="text-white/80 mb-6">Book your installation or repair today.</p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <a href={waLink()} target="_blank" rel="noreferrer" className="btn-whatsapp px-6 py-3 rounded-2xl font-semibold">Chat on WhatsApp</a>
+            <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-semibold bg-white text-[color:var(--ink)]">Contact Us <ArrowRight className="w-4 h-4" /></Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

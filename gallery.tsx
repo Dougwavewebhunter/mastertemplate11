@@ -1,0 +1,87 @@
+import { Wifi, Satellite, Smartphone, Wrench, Truck, FileSignature } from "lucide-react";
+
+export const SERVICES = [
+  {
+    slug: "wifi",
+    title: "WiFi Network Installation",
+    icon: Wifi,
+    blurb: "Lightning-fast, secure home & office WiFi with full coverage.",
+    points: [
+      "Home & Office WiFi Installation",
+      "Router Installation",
+      "WiFi Extender Setup",
+      "Strong & Stable Signal Optimisation",
+      "Secure Wireless Network Configuration",
+    ],
+  },
+  {
+    slug: "dstv",
+    title: "DStv Services",
+    icon: Satellite,
+    blurb: "Full DStv installations, repairs and upgrades by accredited techs.",
+    points: [
+      "New DStv Decoder Installation",
+      "Extra View Setup",
+      "Satellite Dish Installation",
+      "Signal Alignment",
+      "Decoder Repairs",
+      "Decoder Upgrades",
+      "Decoder Relocation",
+      "Full Installation & Support",
+    ],
+  },
+  {
+    slug: "unlocking",
+    title: "Phone Unlocking Services",
+    icon: Smartphone,
+    blurb: "Fast, safe software & network unlocking for all major brands.",
+    points: [
+      "Software Unlocking",
+      "Network Unlocking",
+      "Android Phone Unlocking",
+      "Multi-Brand Phone Support",
+      "Fast & Secure Service",
+    ],
+  },
+  {
+    slug: "appliances",
+    title: "Electrical Appliance Repairs",
+    icon: Wrench,
+    blurb: "Professional repairs for TVs, fridges, microwaves and more.",
+    points: [
+      "Television Repairs",
+      "Refrigerator Repairs",
+      "Microwave Repairs",
+      "Washing Machine Repairs",
+      "Small Appliance Repairs",
+      "Electrical Fault Diagnosis",
+      "Professional Repair Services",
+    ],
+  },
+  {
+    slug: "delivery",
+    title: "Free Delivery & Installation",
+    icon: Truck,
+    blurb: "We bring it, we install it, we set it up — at no extra cost.",
+    points: [
+      "Fast Delivery",
+      "Free Installation",
+      "Professional Setup",
+      "Customer Support",
+    ],
+  },
+  {
+    slug: "contracts",
+    title: "24-Month DStv Contracts",
+    icon: FileSignature,
+    blurb: "Flexible DStv & internet contracts with peace-of-mind cover.",
+    points: [
+      "DStv Internet Packages",
+      "DStv Decoder Contracts",
+      "24-Month Flexible Contracts",
+      "Free Installation",
+      "Free Delivery",
+      "Peace of Mind",
+    ],
+  },
+];
